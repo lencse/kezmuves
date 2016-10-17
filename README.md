@@ -23,4 +23,4 @@ grunt build
 bin/console lencse:sync
 ````
 
-[![Build Status](https://travis-ci.org/lencse/ll-blog.svg?branch=master)](https://travis-ci.org/lencse/ll-blog)
+[![Build Status](https://travis-ci.org/lencse/kezmuves.svg?branch=master)](https://travis-ci.org/lencse/kezmuves)
