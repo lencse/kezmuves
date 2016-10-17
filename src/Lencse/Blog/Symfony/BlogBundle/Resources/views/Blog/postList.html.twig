@@ -1,0 +1,8 @@
+{% extends 'BlogBundle::base.html.twig' %}
+
+{% block main %}
+    <div class="row">
+        {% include 'BlogBundle:Blog/includes:postList.html.twig' with {posts: data.postList} %}
+        {% include 'BlogBundle::sidebar.html.twig' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<div class="col-xs-12  col-sm-8">
+    <div class="meta__info">
+        <span class="meta__author">
+            <a href="{{ path('lencse_blog_page_show', {slug: 'levente'}) }}">
+                <img src="readable-theme/images/author/lokilevente.jpg" alt="Löki Levente" width="30" height="30">
+            </a>
+            &nbsp;
+            <span class="meta__date">
+                <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+                <a href="{{ postRoute(post) }}">{{ post.publicationDate | prettyDate }}</a>
+            </span>
+            &nbsp;
+            <span class="glyphicon glyphicon-folder-open"></span>&nbsp;
+            <a href="{{ path('lencse_blog_category', {category: post.category}) }}">{{ post.category }}</a>
+        </span>
+    </div>
+</div>

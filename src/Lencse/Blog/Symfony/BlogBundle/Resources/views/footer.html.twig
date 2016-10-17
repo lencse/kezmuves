@@ -1,0 +1,93 @@
+<footer class="footer">
+    <div class="container">
+        <div class="col-xs-12  col-md-3">
+            <div class="widget-about  push-down-30">
+                <div class="logo">
+                    <a href="{{ path('lencse_blog_post_list') }}">Kézműves Programozó</a>
+                </div>
+
+                <p class="footer__text">
+                    A kézműves programozóblog.
+                </p>
+
+                <p class="footer__text">
+                </p>
+
+                <p>&nbsp;</p>
+
+                <div class="social-icons  widget-social-icons">
+                    <a href="https://www.facebook.com/lokileventehu" class="social-icons__container"><span
+                                class="zocial-facebook"></span></a>
+                    <a href="https://twitter.com/LeventeLoki" class="social-icons__container"><span
+                                class="zocial-twitter"></span></a>
+                    <a href="https://github.com/lencse" class="social-icons__container"><span
+                                class="zocial-github"></span></a>
+                    <a href="https://www.linkedin.com/in/lokilevente" class="social-icons__container"><span
+                                class="zocial-linkedin"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12  col-md-6">
+            <div class="tags  widget-tags">
+                <h6>Címkék</h6>
+                <hr>
+                {% for tag in data.tags %}
+                    <a href="{{ path('lencse_blog_tag', {tag: tag}) }}" class="tags__link">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-xs-12  col-md-3">
+            <nav class="widget-navigation  push-down-30">
+                <h6>Rovatok</h6>
+                <hr>
+                <ul class="navigation">
+                    <li><a href="{{ path('lencse_blog_post_list') }}">Főoldal</a></li>
+                    {% for page in data.pages %}
+                        <li>
+                            <a href="{{ path('lencse_blog_page_show', {slug: page.slug}) }}" class="dropdown-toggle"
+                               data-toggle="dropdown">{{ page.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        {#<div class="col-xs-12  col-md-3">#}
+            {#<div class="widget-contact  push-down-30">#}
+                {#<h6>Az oldal</h6>#}
+                {#<hr>#}
+                {#<span class="widget-contact__text">#}
+                    {#<p>#}
+                        {#<span class="widget-contact__title">Kézműves Programozó</span>#}
+                    {#</p>#}
+                    {#<ul>#}
+                        {#<li><a href="http://symfony.com/">Symfony</a></li>#}
+                        {#<li><a href="http://www.phptherightway.com/">PHP</a></li>#}
+                        {#<li><a href="http://sass-lang.com/">SASS</a></li>#}
+                    {#</ul>#}
+                {#</span>#}
+            {#</div>#}
+        {#</div>#}
+    </div>
+</footer>
+<footer class="copyrights">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12  col-sm-9">
+                <div class="copyrights--left">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+                                alt="Creative Commons Licenc" style="border-width:0"
+                                src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a>
+                    A cikkek a
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Nevezd
+                        meg! - Ne add el! - Így add tovább! 4.0 Nemzetközi Licenc</a> feltételeinek megfelelően
+                    felhasználhatók.
+                </div>
+            </div>
+            <div class="col-xs-12  col-sm-3">
+                <div class="copyrights--right">
+                    Löki Levente © 2016.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

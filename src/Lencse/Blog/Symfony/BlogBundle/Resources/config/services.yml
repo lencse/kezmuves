@@ -1,0 +1,103 @@
+parameters:
+    lencse.blog.zip_url: '%content_zip_url%'
+    lencse.blog.content_dir: '%kernel.root_dir%/../%content_dir%'
+    lencse.blog.asset_dir: '%kernel.root_dir%/../web/content'
+
+services:
+    # Public services
+    lencse.blog.controller:
+        class: Lencse\Blog\Component\Controller\Controller
+        arguments:
+            - '@lencse.blog.post_repository'
+            - '@lencse.blog.page_repository'
+            - '@lencse.blog.response_handler'
+    lencse.blog.content_downloader:
+        class: Lencse\Blog\Component\Sync\ContentDownloader
+        arguments:
+            - '%lencse.blog.zip_url%'
+            - '%lencse.blog.content_dir%'
+            - '%lencse.blog.asset_dir%'
+
+    # Twig services
+    lencse.blog.twig.router:
+        class: Lencse\Blog\Symfony\BlogBundle\Twig\RouterExtension
+        arguments:
+            - '@lencse.blog.router'
+        tags:
+            - {name: twig.extension}
+        public: false
+    lencse.blog.twig.date_formatter:
+        class: Lencse\Blog\Symfony\BlogBundle\Twig\DateExtension
+        arguments:
+            - '@lencse.blog.date_formatter'
+        tags:
+            - {name: twig.extension}
+        public: false
+
+    # Private services
+    lencse.blog.md_parser:
+        class: Lencse\Blog\Adapter\Parser\PHPMarkdownParser
+        public: false
+    lencse.blog.yaml_parser:
+        class: Lencse\Blog\Adapter\Parser\SymfonyYamlParser
+        public: false
+    lencse.blog.file_parser:
+        class: Lencse\Blog\Component\Content\Loader\FileParser
+        arguments:
+            - '@lencse.blog.md_parser'
+            - '@lencse.blog.yaml_parser'
+        public: false
+    lencse.blog.post_loader:
+        class: Lencse\Blog\Component\Content\Loader\PostLoader
+        arguments:
+            - '@lencse.blog.file_parser'
+            - '%lencse.blog.content_dir%'
+        public: false
+    lencse.blog.posts:
+        class: Lencse\Blog\Component\Content\PostCollection
+        factory:
+            - '@lencse.blog.post_loader'
+            - 'loadPosts'
+        public: false
+    lencse.blog.post_repository:
+        class: Lencse\Blog\Component\Content\PostRepository
+        arguments:
+            - '@lencse.blog.posts'
+        public: false
+    lencse.blog.page_file_parser:
+        class: Lencse\Blog\Component\Content\Loader\PageFileParser
+        arguments:
+            - '@lencse.blog.md_parser'
+            - '@lencse.blog.yaml_parser'
+        public: false
+    lencse.blog.page_loader:
+        class: Lencse\Blog\Component\Content\Loader\PageLoader
+        arguments:
+            - '@lencse.blog.page_file_parser'
+            - '%lencse.blog.content_dir%'
+        public: false
+    lencse.blog.pages:
+        class: Lencse\Blog\Component\Content\PageCollection
+        factory:
+            - '@lencse.blog.page_loader'
+            - 'loadPages'
+        public: false
+    lencse.blog.page_repository:
+        class: Lencse\Blog\Component\Content\PageRepository
+        arguments:
+            - '@lencse.blog.pages'
+        public: false
+    lencse.blog.router:
+        class: Lencse\Blog\Symfony\BlogBundle\Routing\PostRouter
+        arguments:
+            - '@router'
+        public: false
+    lencse.blog.response_handler:
+        class: Lencse\Blog\Symfony\BlogBundle\ResponseHandler\BlogResponseHandler
+        arguments:
+            - '@templating'
+            - '@router'
+        public: false
+    lencse.blog.date_formatter:
+        class: Lencse\Date\DateFormatter
+        public: false

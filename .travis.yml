@@ -1,0 +1,18 @@
+language: php
+php:
+  - '5.6'
+  - '7.0'
+  - hhvm
+before_script:
+  - cp app/config/parameters.yml.travis app/config/parameters.yml
+  - composer self-update
+  - npm install -g bower
+  - npm install -g grunt-cli
+  - gem install sass
+  - gem install compass
+  - composer install --prefer-source --no-interaction
+  - npm install
+  - composer build
+  - php bin/console lencse:sync
+script:
+  - composer test-build

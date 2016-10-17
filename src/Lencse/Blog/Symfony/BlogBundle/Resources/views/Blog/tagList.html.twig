@@ -1,0 +1,22 @@
+{% extends 'BlogBundle::base.html.twig' %}
+
+{% set pageTitle = 'Címkék' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-xs-12  col-md-8">
+            <div class="widget-author  boxed  push-down-30">
+                <div class="row">
+                    <div class="col-xs-10  col-xs-offset-1">
+                        <div class="widget-author__content">
+                            {% for tag in data.tags %}
+                                <h4><a href="{{ path('lencse_blog_tag', {tag: tag}) }}">{{ tag }}</a></h4>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'BlogBundle::sidebar.html.twig' %}
+    </div>
+{% endblock %}

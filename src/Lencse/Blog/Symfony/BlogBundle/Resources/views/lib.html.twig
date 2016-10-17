@@ -1,0 +1,1 @@
+{% macro currentUrl() %}{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}{% endmacro %}

@@ -1,0 +1,15 @@
+{% extends 'BlogBundle::base.html.twig' %}
+
+{% set pageTitle = data.category %}
+
+{% block main %}
+    <div class="search-results">
+        <p>
+            <h3><span class="glyphicon glyphicon-folder-open"></span> &nbsp; {{ data.category }}</h3>
+        <p>
+    </div>
+    <div class="row">
+        {% include 'BlogBundle:Blog/includes:postList.html.twig' with {posts: data.postList} %}
+        {% include 'BlogBundle::sidebar.html.twig' %}
+    </div>
+{% endblock %}

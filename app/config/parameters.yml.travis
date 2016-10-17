@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: travis
+    database_user: travis
+    database_password: ~
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 72a4bd95af5468938f47b9f347dd2798b0b60b3d
+    content_dir: var/content
+    content_zip_url: 'https://github.com/lencse/ll-blog-content/archive/master.zip'
+    disqus_site_id: test-kezmuvesprogramozo-hu
+    ga_id: ~
