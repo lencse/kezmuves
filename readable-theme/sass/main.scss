@@ -469,3 +469,19 @@ header .logo {
 .copyrights--left {
   font-size: 11px;
 }
+
+.post-content img, .post-content--front-page img, .widget-author__content img {
+  max-width: 100%;
+}
+
+.post-content .credit, .post-content--front-page .credit {
+  background-color: adjust_color($body-bg, $lightness: (100 - lightness($body-bg)) / 2);
+  padding: 1em;
+  font: 0.65em $tertiary-font;
+  text-align: right;
+  border-radius: 4px;
+  margin-top: 2em;
+  p {
+    margin: 0;
+  }
+}

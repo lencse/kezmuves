@@ -5,7 +5,7 @@
             {{ post.lead | raw }}
         </div>
         {% if post.hasLead %}
-            <a href="single-post.html">
+            <a href="{{ postRoute(post) }}">
                 <div class="read-more">
                     Tovább
                     <div class="read-more__arrow">

@@ -176,19 +176,20 @@ class Controller
      */
     public function categoryList()
     {
-        $response = new ResponseData();
-        $meta = new Meta();
-        $meta->setTitle('Kézműves Programozó')
-            ->setType('website')
-            ->setDescription('Kategóriák');
 
-        $response->setAllPosts($this->postRepository->getAllOrderByDate())
-            ->setCategories($this->postRepository->getCategories())
-            ->setTags($this->postRepository->getTags())
-            ->setPages($this->pageRepository->getAll())
-            ->setMeta($meta);
+$response = new ResponseData();
+$meta = new Meta();
+$meta->setTitle('Kézműves Programozó')
+    ->setType('website')
+    ->setDescription('Kategóriák');
 
-        return $this->responseHandler->renderView('categoryList', $response);
+$response->setAllPosts($this->postRepository->getAllOrderByDate())
+    ->setCategories($this->postRepository->getCategories())
+    ->setTags($this->postRepository->getTags())
+    ->setPages($this->pageRepository->getAll())
+    ->setMeta($meta);
+
+return $this->responseHandler->renderView('categoryList', $response);
     }
     /**
      * @return mixed

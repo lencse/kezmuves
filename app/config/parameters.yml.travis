@@ -11,6 +11,6 @@ parameters:
     mailer_password: null
     secret: 72a4bd95af5468938f47b9f347dd2798b0b60b3d
     content_dir: var/content
-    content_zip_url: 'https://github.com/lencse/ll-blog-content/archive/master.zip'
+    content_zip_url: 'https://github.com/lencse/kezmuves-content/archive/master.zip'
     disqus_site_id: test-kezmuvesprogramozo-hu
     ga_id: ~
