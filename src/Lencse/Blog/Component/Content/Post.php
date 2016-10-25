@@ -212,7 +212,6 @@ class Post
     {
         date_default_timezone_set("Europe/Budapest");
         $current = new \DateTime();
-        print_r([$current, $this->getPublicationDate()]);
 
         return ($current->getTimestamp() - $this->getPublicationDate()->getTimestamp()) > 0;
     }
