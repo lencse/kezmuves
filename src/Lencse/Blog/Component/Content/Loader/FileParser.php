@@ -44,6 +44,7 @@ class FileParser
         }
         $post = new Post();
         $date = new \DateTime();
+        $date->setTimezone(new \DateTimeZone('Europe/Budapest'));
         $date->setTimestamp($meta['pubdate']);
         $post->setSlug($meta['slug'])
             ->setCategory($meta['category'])
