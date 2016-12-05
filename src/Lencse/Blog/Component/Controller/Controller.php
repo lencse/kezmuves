@@ -49,6 +49,7 @@ class Controller
             ->setDescription('Webfejlesztő, szoftvertervező, a nők barátja és a fogkő ellensége.');
 
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $response->setPostList($this->postRepository->getAllOrderByDate())
             ->setAllPosts($this->postRepository->getAllOrderByDate())
             ->setCategories($this->postRepository->getCategories())
@@ -83,6 +84,7 @@ class Controller
             ->setImage($post->getFeaturedImage());
 
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $response->setAllPosts($this->postRepository->getAllOrderByDate())
             ->setCategories($this->postRepository->getCategories())
             ->setTags($this->postRepository->getTags())
@@ -108,6 +110,7 @@ class Controller
             ->setDescription(sprintf('%s – Kézműves Programozó', $tag));
 
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $response->setPostList($this->postRepository->getByTagOrderByDate($tag))
             ->setAllPosts($this->postRepository->getAllOrderByDate())
             ->setCategories($this->postRepository->getCategories())
@@ -134,6 +137,7 @@ class Controller
             ->setDescription(sprintf('%s – Kézműves Programozó', $category));
 
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $response->setPostList($this->postRepository->getByCategoryOrderByDate($category))
             ->setAllPosts($this->postRepository->getAllOrderByDate())
             ->setCategories($this->postRepository->getCategories())
@@ -155,6 +159,7 @@ class Controller
             $this->responseHandler->notFoundResponse();
         }
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $page = $this->pageRepository->getPageBySlug($slug);
         $meta = new Meta();
         $meta->setTitle($page->getTitle())
@@ -178,6 +183,7 @@ class Controller
     {
 
 $response = new ResponseData();
+$response->setControllerAction(explode('::', __METHOD__)[1]);
 $meta = new Meta();
 $meta->setTitle('Kézműves Programozó')
     ->setType('website')
@@ -197,6 +203,7 @@ return $this->responseHandler->renderView('categoryList', $response);
     public function tagList()
     {
         $response = new ResponseData();
+        $response->setControllerAction(explode('::', __METHOD__)[1]);
         $meta = new Meta();
         $meta->setTitle('Kézműves Programozó')
             ->setType('website')
