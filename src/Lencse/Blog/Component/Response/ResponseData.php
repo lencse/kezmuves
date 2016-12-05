@@ -63,6 +63,11 @@ class ResponseData
     private $meta;
 
     /**
+     * @var string
+     */
+    private $controllerAction;
+
+    /**
      * @param PostCollection $postList
      */
     public function setPostList(PostCollection $postList)
@@ -259,4 +264,22 @@ class ResponseData
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getControllerAction()
+    {
+        return $this->controllerAction;
+    }
+
+    /**
+     * @param string $controllerAction
+     * @return ResponseData
+     */
+    public function setControllerAction($controllerAction)
+    {
+        $this->controllerAction = $controllerAction;
+        return $this;
+    }
+    
 }

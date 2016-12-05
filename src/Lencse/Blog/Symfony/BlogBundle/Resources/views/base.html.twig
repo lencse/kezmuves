@@ -57,6 +57,8 @@
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
         ga('create', {{ ga_id | json_encode | raw }}, 'auto');
+        ga('set', 'test-action', {{ data.controllerAction | json_encode | raw }});
+
         ga('send', 'pageview');
 
     </script>
