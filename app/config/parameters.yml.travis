@@ -14,3 +14,4 @@ parameters:
     content_zip_url: 'https://github.com/lencse/kezmuves-content/archive/master.zip'
     disqus_site_id: test-kezmuvesprogramozo-hu
     ga_id: ~
+    sentry_dsn: ~

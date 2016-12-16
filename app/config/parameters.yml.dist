@@ -23,3 +23,5 @@ parameters:
     content_zip_url:   ~
     disqus_site_id:    ~
     ga_id:             ~
+
+    sentry_dsn:        ~
