@@ -80,10 +80,3 @@ sudo gem install sass
 sudo apt-get -y install ruby-compass
 
 sudo apt-get -y install mongodb
-
-if [ -d /shared/vagrant/mongodb ];
-then
-    cd /shared/vagrant/mongodb
-    sudo mongorestore
-    rm -rf ./dump
-fi
